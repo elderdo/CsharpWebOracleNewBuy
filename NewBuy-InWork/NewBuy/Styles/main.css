@@ -1,0 +1,397 @@
+﻿/*----------------------------------------------------------
+DEFAULT / PAGE ELEMENTS
+----------------------------------------------------------*/
+html {
+    overflow-y: scroll; /* Fix for virtual scroll bar page width jumping */
+}
+
+body 
+{
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    display: block;
+}
+
+/* Set By the Theme
+a:link 
+{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited 
+{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover 
+{
+    text-decoration: underline;
+}
+
+a:active 
+{
+    text-decoration: none;
+}*/
+
+p, ul 
+{
+    margin-bottom: 10px;
+    line-height: 1.5em;
+}
+
+a img, img 
+{
+    border: 0px;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1 
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 
+{
+    padding:  0 0 10px 0;
+}
+
+h3 
+{
+    font-size: 1.2em;
+}
+
+h4 
+{
+    font-size: 1.1em;
+}
+
+h5, h6 
+{
+    font-size: 1em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+#main 
+{
+    min-width: 760px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+#mainHeader 
+{
+    width: 100%;
+}
+
+#brandZone
+{
+    height: 91px;
+}
+
+#mainlogo
+{
+    float: left;
+    text-align: left; 
+}
+
+#mainBanner
+{
+    float: right;
+    text-align: right;
+}
+
+#menu
+{
+    height: 2.1em;
+    background-color: #FFFFFF;
+    font-size: .95em;
+    font-weight: bolder;
+}
+
+#menuContent
+{
+    position: relative;
+    z-index: 1;
+    padding-left: 33px;
+}
+
+#menuContentRight
+{
+    position: relative;
+    z-index: 1;
+    margin-right: 33px;
+}
+
+#personalityZone
+{
+    width: 100%;
+    height: 55px;
+    background-color: #0038A8;
+}
+
+#personalityZoneContentLeft
+{
+    border: 0;
+    padding: 0 0 0 33px;
+    font-size: 1.1em;
+    font-weight: bold;
+    line-height: 55px;
+    color: #FFFFFF;
+}
+
+#personalityZoneContentRight
+{
+    border: 0;
+    padding: 0 33px 0 0;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: normal;
+    line-height: 55px;
+    color: #FFFFFF;
+    float: right;
+}
+
+#mainBody 
+{
+    /* empty */
+}
+
+#mainBodyContent 
+{
+    width: 100%;
+    min-height: 100px;
+    margin: 0px auto;
+    padding: 0 0 35px 0;
+}
+
+#mainFooter 
+{
+    line-height: normal;
+    font-size: .75em;
+    margin: 0;
+    /*border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #0038A8;*/
+    padding: 12px 0px 5px 35px; /* Match logo left align */
+    text-align: center;
+    clear:both;
+}
+
+#mainFooter p {
+    width: 100%;
+    margin: 0px auto;
+    line-height: 100%;
+}
+
+#mainFooterContent1 {
+    padding: 0px 0px 5px 0px;
+}
+
+#mainFooterContent2 {
+    margin: 0px 0px 5px 0px;
+    color: #A5ACB0;
+}
+
+.mainFooterExtraLight
+{
+    color: #C0C0C0;
+}
+
+.mainBodyContentText
+{
+    padding: 0 0 0 35px;
+}
+
+/* LOGIN FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.loginDiv 
+{
+    width: 250px;
+    padding: 20px 20px 10px 20px;
+}
+
+.loginDivHeader
+{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 0px 5px 0px;
+    margin-bottom: 10px;
+}
+
+.loginDivInput
+{
+    width: 90%;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+
+.loginDivDropDown
+{
+    width: 95%;
+    padding: 6px;
+    margin-bottom: 10px;
+    height: 2.3em;
+}
+
+.loginDivSubmit
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+/* APPLICATION LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.toolbar
+{
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+}
+
+.toolbar-inset-right
+{
+    float: right;
+}
+
+#budget-Data
+{
+    text-align: right;
+    font-size: .8em;
+}
+
+.toolbarButtonSet
+{
+    float: left;
+}
+
+.dialogIcon
+{
+    float: left; 
+    margin: 0 7px 20px 0;
+}
+
+.partSearchIcon
+{
+    float: left; 
+    margin: 6px 6px 0 0;
+}
+
+.infoDialog
+{
+    min-width: 500px;
+    min-height: 200px;
+}
+
+.confirm
+{
+    min-height: 200px;
+    min-width: 400px;
+}
+
+.pleaseWait
+{
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.lookup
+{
+    min-height: 100px;
+    min-width: 400px;
+}
+
+.lookupWide
+{
+    min-height: 100px;
+    min-width: 500px;
+}
+
+.ui-autocomplete-loading
+{ 
+    background: white url('../Content/images/progress_cir.gif') right center no-repeat;
+}
+
+.ltaReport
+{
+    width: 100%;
+    min-height: 400px;
+}
+
+.ltaReportNotes
+{
+    text-align: right;
+    font-size: .8em;
+    font-weight: normal;
+}
+
+.ltaPartDetail
+{
+    width: 20%;
+    border: none;
+    float: left;
+}
+
+.ltaDetail
+{
+    margin-left: 20%;
+    width: 80%;
+    border: none;
+}
+
+#ltaDtl_part
+{
+    font-weight: bold;
+}
+
+/* GRID LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+.gridWrapper
+{
+    width: 100%;
+}
+
+.gridButton
+{
+    height: 20px;
+    line-height: 20px !important;
+}
+
+.gridButton span
+{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.inputNote
+{
+    font-size: .6em;
+    color: #000000;
+    font-style: italic;
+}
+
+.gridCcnValid
+{
+    background-color: #67B021;
+    font-weight: bold;
+}
+
+.gridCcnInValid
+{
+    color: #CC0000;
+    background-color: #F3D8D8;
+    font-weight: bold;
+}

@@ -1,0 +1,138 @@
+
+/*** ESSENTIAL STYLES ***/
+.sfr-menu, .sfr-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sfr-menu {
+	line-height:	1.0;
+}
+.sfr-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* right offset of submenus need to match (see below) */
+}
+.sfr-menu ul li {
+	width:			100%;
+}
+.sfr-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sfr-menu li {
+	float:			right;
+	position:		relative;
+}
+.sfr-menu a {
+	display:		block;
+	position:		relative;
+}
+.sfr-menu li:hover ul,
+.sfr-menu li.sfrHover ul {
+	right:			0;
+	top:			2em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sfr-menu li:hover li ul,
+ul.sfr-menu li.sfrHover li ul {
+	top:			-999em;
+}
+ul.sfr-menu li li:hover ul,
+ul.sfr-menu li li.sfrHover ul {
+	right:			10em; /* match ul width */
+	top:			0;
+}
+ul.sfr-menu li li:hover li ul,
+ul.sfr-menu li li.sfrHover li ul {
+	top:			-999em;
+}
+ul.sfr-menu li li li:hover ul,
+ul.sfr-menu li li li.sfrHover ul {
+	right:			10em; /* match ul width */
+	top:			0;
+}
+
+/*** DEMO SKIN ***/
+.sfr-menu {
+	float:			right;
+	/*margin-bottom:	1em;*/
+}
+.sfr-menu a {
+	border-right:	1px solid #ffffff;
+	border-top:		1px solid #ffffff;
+	padding: 		.5em .75em;
+	text-decoration:none;
+}
+.sfr-menu a, .sfr-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#666666;
+}
+.sfr-menu li {
+	background:		#ffffff;
+}
+.sfr-menu li li {
+	background:		#ffffff;
+}
+.sfr-menu li li li {
+	background:		#ffffff;
+}
+.sfr-menu li:hover, .sfr-menu li.sfrHover,
+.sfr-menu a:focus, .sfr-menu a:hover, .sfr-menu a:active {
+	background:		#ffffff;
+	outline:        0;
+	color:          #0038A8;
+	border-color:	#0038A8;
+}
+
+/*** arrows **/
+.sfr-menu a.sfr-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sfr-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('../Content/images/superfish-arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .sfr-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sfr-sub-indicator,
+a:hover > .sfr-sub-indicator,
+a:active > .sfr-sub-indicator,
+li:hover > a > .sfr-sub-indicator,
+li.sfrHover > a > .sfr-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.sfr-menu ul .sfr-sub-indicator { background-position:  -10px 0; }
+.sfr-menu ul a > .sfr-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.sfr-menu ul a:focus > .sfr-sub-indicator,
+.sfr-menu ul a:hover > .sfr-sub-indicator,
+.sfr-menu ul a:active > .sfr-sub-indicator,
+.sfr-menu ul li:hover > a > .sfr-sub-indicator,
+.sfr-menu ul li.sfrHover > a > .sfr-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+.sfr-shadow ul {
+	background:	url('../Content/images/superfish-shadow.png') no-repeat bottom right;
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomright: 17px;
+	-moz-border-radius-topleft: 17px;
+	-webkit-border-top-left-radius: 17px;
+	-webkit-border-bottom-right-radius: 17px;
+}
+.sfr-shadow ul.sfr-shadow-off {
+	background: transparent;
+}

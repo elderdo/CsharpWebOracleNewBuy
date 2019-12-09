@@ -1,0 +1,149 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NewBuy.master.cs" Inherits="NewBuy.NewBuy" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title>ESCM New Buy <%=" - " + Page.Title %></title>
+    <meta name="title" content="ESCM New Buy Tool" />
+    <meta name="subject" content="ESCM New Buy" />
+    <%= "<meta name=\"date\" content=\"" + GetLastUpdateDate(true) + "\" />"%>
+    <meta name="creator" content="1979286 - Bryan K Lewis; 1881484 - Michael J Brady" />
+    <meta name="description" content="Enterprise Supply Chain Management (ESCM) New Buy Tool; Supporting Mesa Apache Programs" />
+    <meta name="owner" content="1007177 - Gail M Flinn" />
+    <meta name="robots" content="ALL" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <link href="Content/images/favicon.ico" rel="Shortcut Icon" type="image/x-icon" />
+    <link href="Styles/main.css" rel="stylesheet" type="text/css" />
+    <link href="Content/themes/boeing-theme/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/superfish.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/superfish-right.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <script src="<%=ResolveClientUrl("~/Scripts/jquery-1.9.1.min.js")%>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Scripts/jquery-ui-1.10.2.custom.min.js")%>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Scripts/grid.locale-en.js")%>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Scripts/jquery.jqGrid-4.4.5.min.js")%>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Scripts/shared.js")%>" type="text/javascript" ></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div id="main">
+        <div id="mainHeader">
+            <div id="brandZone">
+                <div id="mainlogo">
+                    <asp:HyperLink ID="BoeingLogoHyperlink" NavigateUrl="http://inside.boeing.com" ToolTip="inside.boeing.com" runat="server">
+                        <asp:Image ID="BoeingLogo" AlternateText="The Boeing Company" ImageUrl="~/Content/images/logo90wb.gif" runat="server" />
+                    </asp:HyperLink>
+                </div>
+                <div id="mainBanner">
+                    <asp:HyperLink ID="BrandHyperlink" NavigateUrl="http://globalservicessupport.ids.web.boeing.com" ToolTip="Global Services & Support" runat="server">
+                        <asp:Image ID="Brand" AlternateText="Global Services & Support" ImageUrl="~/Content/images/bz_BDS_Global_Services_Support.gif" runat="server" />
+                    </asp:HyperLink>
+                </div>
+            </div>
+            <div id="menu">
+                <div id="menuContentRight">
+                    <ul class="sfr-menu">
+                        <li>
+                            <asp:HyperLink ID="User" NavigateUrl="#" runat="server"></asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="Logout" NavigateUrl="~/Shared/Logout.aspx" runat="server">Logout</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>	
+                    </ul>     
+                </div>
+                <div id="menuContent">
+                    <ul class="sf-menu">
+                        <li>
+                            <asp:HyperLink ID="Home" NavigateUrl="~/Default.aspx" runat="server">Home</asp:HyperLink>
+                        </li>
+                        <% if (Convert.ToBoolean(HttpContext.Current.Session["cls"]))
+                           { %>
+                        <li>
+                            <asp:HyperLink ID="CLS" NavigateUrl="~/#" runat="server">CLS</asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="CLS1" NavigateUrl="~/CLS/Activity.aspx" runat="server">New Buy Activity - PBL/CLS</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="CLS2" NavigateUrl="~/CLS/CCB.aspx" runat="server">New Buy CCB - PBL/CLS</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <% } %>
+                        <% if (Convert.ToBoolean(HttpContext.Current.Session["uk"]))
+                           { %>
+                        <li>
+                            <asp:HyperLink ID="UK" NavigateUrl="~/#" runat="server">UK</asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="UK1" NavigateUrl="~/UK/Activity.aspx" runat="server">New Buy Asset Manager - UK</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="UK2" NavigateUrl="~/UK/CCB.aspx" runat="server">New Buy CCB - UK</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <% } %>
+                        <% if (Convert.ToBoolean(HttpContext.Current.Session["ccad"]))
+                           { %>
+                        <li>
+                            <asp:HyperLink ID="CCAD" NavigateUrl="~/#" runat="server">CCAD</asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="CCAD1" NavigateUrl="~/CCAD/Activity.aspx" runat="server">New Buy Asset Manager - CCAD</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="CCAD2" NavigateUrl="~/CCAD/CCB.aspx" runat="server">New Buy ORB - CCAD</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <% } %>
+                        <% if (Convert.ToBoolean(HttpContext.Current.Session["cls"]) ||
+                               Convert.ToBoolean(HttpContext.Current.Session["ccad"]))
+                           { %>
+                        <li>
+                            <asp:HyperLink ID="Maintenance" NavigateUrl="~/#" runat="server">Maintenance</asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="Segcode" NavigateUrl="~/SEGCODE/Maintain.aspx" runat="server">Segcode</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <% } %>	
+                    </ul>
+                </div>
+            </div>
+            <div id="personalityZone">
+                <div id="personalityZoneContentRight"></div>
+                <div id="personalityZoneContentLeft">ESCM New Buy</div>
+            </div>
+        </div>
+        <div id="mainBody">
+            <div id="mainBodyContent">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+            <!-- Master Page Level script -->
+            <!-- Content Page Level script -->
+            <asp:ContentPlaceHolder ID="MainContentjQuery" runat="server" />
+        </div>
+        <div id="mainFooter">
+            <div id="mainFooterContent1">
+                <p>
+                    <a href="http://inside.boeing.com">Inside Boeing</a> 
+                    | <a href="mailto:DL-MesaESCMSupport@boeing.com?subject=New%20Buy%20Tool%20Comment">Web Site Feedback</a> 
+                    | <a href="mailto:DL-MesaESCMSupport@boeing.com?subject=New%20Buy%20Tool">Content Owner</a>
+                </p>
+            </div>
+            <div id="mainFooterContent2">
+                <p>Copyright &copy; <%= DateTime.Today.Year %> Boeing. All rights reserved.</p>
+                <p>Last Updated: <%= GetLastUpdateDate(false) %></p>
+            </div>
+        </div>    
+    </div>
+    </form>
+</body>
+</html>
