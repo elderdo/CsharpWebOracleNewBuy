@@ -137,10 +137,11 @@ namespace NewBuy.Helpers
             string valueList = "";
             string value = "";
 
-            int count = array.Length;
+            int count = 0;
 
             if (array != null)
             {
+                count = array.Length;
                 if (count > 0)
                 {
                     for (int i = 0; i < count; i++)
