@@ -5727,6 +5727,7 @@ namespace NewBuy.DbInterface
                                     "where order_no = :OrderNum";
                                 dbCommand.Parameters.Add(":ActivitySts", OracleType.VarChar).Value = OrderActivityStatus.order_status_values[0];
                                 dbCommand.Parameters.Add(":OrderNum", OracleType.VarChar).Value = order;
+                                invalidCCNCount++;
                             }
 
                             //Save to database
